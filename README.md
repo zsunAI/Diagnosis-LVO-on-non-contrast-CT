@@ -49,5 +49,4 @@ A 2D nnU-Net model was applied for precise localization and classification of th
 (M1, M2, C7, C7+M1, or M1+M2). The input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.  
 
 ## **Citation**  
----
 If you find our paper and code useful in your research, please consider giving a star ⭐ and citation.
