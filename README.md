@@ -1,7 +1,7 @@
 # Diagnosis-LVO-on-non-contrast-CT
 Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT
 ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig2.png)  
-Fig1. Overview of the three-stage deep learning workflow for automated large vessel occlusion (LVO) detection and localization from non-contrast CT (NCCT) scans. Stage 1: A 3D nnU-Net model was used for cerebral vessel segmentation from original 3D axial NCCT slices. Stage 2: The segmented vessel mask, together with probabilistic arterial territory atlases and hemispheric difference maps, were used as multi-channel inputs to a 3D McResNet model for LVO detection. Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was applied for LVO localization and occluded segment classification.  
+Fig1. Overview of the three-stage deep learning workflow for automated large vessel occlusion (LVO) detection and localization from non-contrast CT (NCCT) scans. Stage 1: A 3D nnU-Net model was used for cerebral vessel segmentation from original 3D axial NCCT slices. Stage 2: The segmented vessel mask, together with probabilistic arterial territory atlases and hemispheric difference maps, were used as multi-channel inputs to a 3D McResNet model for LVO detection. Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was applied for LVO localization and occluded segment classification.    
 ---
 
 ## **Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.**
@@ -29,14 +29,14 @@ These inputs were fused into a multichannel framework to enhance the discriminat
 - 🟢 MNI152_brain.nii.gz：brain tissue in MNI space
 - 🟢 half_brain_mask.nii.gz: Masks for the left and right brains in MNI space, with different labels assigned to the left and right brains
 - 🟢 ProbArterialAtlas_BMM_1_double_prep.nii.gz：Cerebral infarction probability map/cerebral blood supply map
-## How to Run
-
-The `train.py` script is used to train the model. Run the following command in your terminal:
-
-```bash
+<h2>🚀 How to Run</h2>
+<p>To train the model, simply execute the following command:</p>
+<pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px;">
 python train.py
+</pre>
+<p>Ensure all dependencies are installed before proceeding.</p>
 
----
+---  
 
 ## **stage3: 2D MIP images of the segmented large vessels were generated.**
 and a 2D nnU-Net model was applied for precise localization and classification of the occlusion site 
