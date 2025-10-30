@@ -1,23 +1,23 @@
 # Diagnosis-LVO-on-non-contrast-CT
 Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT
-The overall workflow of multi-modal segmentation model
-
+The overall workflow of multi-modal segmentation model  
+![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig2.png)  
 
 Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.
-Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet).
- ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png)
- 
+Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet).  
+<p align="center">
+![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png)
+</p>  
+
 Stage2: a knowledge-augmented multichannel ResNet-18–based network (McResNet) was developed for detection of LVO.
 The model incorporated multiple prior-knowledge inputs, including probabilistic arterial territory maps,
-hemispheric difference maps, and vessel segmentation masks obtained from stage 1. 
-These inputs were fused into a multichannel framework to enhance the discriminative representation of vascular and perfusion asymmetry patterns. 
-A convolutional block attention module (CBAM) was further embedded to capture both channel- and spatial-level contextual dependencies, 
-improving feature learning for LVO identification.
-/stage2/prior-knowledge
-			|--prob_and_half.py
-			|--get_halfbrain_difference.py
-			|--MNI152_brain.nii.gz
-			|--half_brain_mask.nii.gz
+hemispheric difference maps, and vessel segmentation masks obtained from stage 1.  
+These inputs were fused into a multichannel framework to enhance the discriminative representation of vascular and perfusion asymmetry patterns. A convolutional block attention module (CBAM) was further embedded to capture both channel- and spatial-level contextual dependencies, improving feature learning for LVO identification.  
+/stage2/prior-knowledge  
+			|--prob_and_half.py  
+			|--get_halfbrain_difference.py  
+			|--MNI152_brain.nii.gz  
+			|--half_brain_mask.nii.gz  
 			|--ProbArterialAtlas_BMM_1_double_prep.nii.gz
 
 **Document Description of .py**：
