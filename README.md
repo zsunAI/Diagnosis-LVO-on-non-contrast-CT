@@ -20,6 +20,7 @@ Fig2. (a) NCCT image; (b) Multi segmentation labels on NCCT images. Green repres
 The model incorporated multiple prior-knowledge inputs, including probabilistic arterial territory maps,
 hemispheric difference maps, and vessel segmentation masks obtained from stage 1.  
 These inputs were fused into a multichannel framework to enhance the discriminative representation of vascular and perfusion asymmetry patterns. A convolutional block attention module (CBAM) was further embedded to capture both channel- and spatial-level contextual dependencies, improving feature learning for LVO identification.  
+
 ...|*stage2*|*prior-knowledge  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--prob_and_half.py  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--get_halfbrain_difference.py  
@@ -36,7 +37,7 @@ These inputs were fused into a multichannel framework to enhance the discriminat
 <h2>🚀 How to Run</h2>
 <p>To train the model, simply execute the following command:</p>
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px;">
-python train.py
+python ...[YOURDIR]/stage2/project/train.py
 </pre>
 <p>Ensure all dependencies are installed before proceeding.</p>
 
@@ -46,6 +47,14 @@ python train.py
 A 2D nnU-Net model was applied for precise localization and classification of the occlusion site 
 (M1, M2, C7, C7+M1, or M1+M2). The input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.  
 ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig3.png)  
-Fig3.  Examples of lesion localization. The NCCT scan sequence is the series of slices in an NCCT scan that contains the corresponding head LVO disorders. The NCCT vascular MIP displays 2D projection images of 3D vessels along the Z axis, and the red mask overlaid on this MIP image represents the segment of occluded vessels identified by our model. The last column displays digital subtraction angiography (DSA) images used for the diagnosis of cerebral artery occlusion. In a 79-year-old female patient, the cerebral occlusion was diagnosed by the deep learning (DL) model in the right middle cerebral artery segment M1 (R-MCA-M1) (red label), which was verified at DSA (arrow).
-## **Citation**  
+Fig3.  Examples of lesion localization. The NCCT scan sequence is the series of slices in an NCCT scan that contains the corresponding head LVO disorders. The NCCT vascular MIP displays 2D projection images of 3D vessels along the Z axis, and the red mask overlaid on this MIP image represents the segment of occluded vessels identified by our model. The last column displays digital subtraction angiography (DSA) images used for the diagnosis of cerebral artery occlusion. In a 79-year-old female patient, the cerebral occlusion was diagnosed by the deep learning (DL) model in the right middle cerebral artery segment M1 (R-MCA-M1) (red label), which was verified at DSA (arrow).  
+## <strong>Requirements</strong>  
+The dependencies for this project are listed in the `requirements.txt` file. You can install them using the following command:
+
+<pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px;">
+pip install -r requirements.txt
+</pre>  
+
+## Citation
 If you find our paper and code useful in your research, please consider giving a star ⭐ and citing our work.
+
