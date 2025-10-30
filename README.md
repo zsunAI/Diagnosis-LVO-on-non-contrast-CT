@@ -10,8 +10,9 @@ Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was 
 *************************************
 
 ## **Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.**  
-Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet). Input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.
+Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet). Input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.  
 ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png)  
+
 Fig2. (a) NCCT image; (b) Multi segmentation labels on NCCT images. Green represents the area of C7, blue indicates the area of M1, yellow corresponds to the area of M2, and red signifies other vessels.  
 
 *************************************
