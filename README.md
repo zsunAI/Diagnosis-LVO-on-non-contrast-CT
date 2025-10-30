@@ -29,8 +29,8 @@ These inputs were fused into a multichannel framework to enhance the discriminat
 - 🟢 MNI152_brain.nii.gz：brain tissue in MNI space
 - 🟢 half_brain_mask.nii.gz: Masks for the left and right brains in MNI space, with different labels assigned to the left and right brains
 - 🟢 ProbArterialAtlas_BMM_1_double_prep.nii.gz：Cerebral infarction probability map/cerebral blood supply map
-
+### 🛠️ how to run: python train.py
 ---
 **stage3: 2D MIP images of the segmented large vessels were generated.**
 and a 2D nnU-Net model was applied for precise localization and classification of the occlusion site 
-(M1, M2, C7, C7+M1, or M1+M2).
+(M1, M2, C7, C7+M1, or M1+M2). nput patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.
