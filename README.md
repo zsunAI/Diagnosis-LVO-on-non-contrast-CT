@@ -1,11 +1,12 @@
 # Diagnosis-LVO-on-non-contrast-CT
 Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT
 The overall workflow of multi-modal segmentation model
- ![image](https://github.com/zsunAI/LVO Diagnosis on NCCT/blob/master/result/a1.jpg)
+
 
 Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.
 Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet).
-
+ ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png)
+ 
 Stage2: a knowledge-augmented multichannel ResNet-18–based network (McResNet) was developed for detection of LVO.
 The model incorporated multiple prior-knowledge inputs, including probabilistic arterial territory maps,
 hemispheric difference maps, and vessel segmentation masks obtained from stage 1. 
