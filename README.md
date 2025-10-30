@@ -1,12 +1,13 @@
 # Diagnosis-LVO-on-non-contrast-CT
-**Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT**  
+## **Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT**  
+<hr style="border: 2px solid #000;"/>
 ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig2.png)  
 Fig1. Overview of the three-stage deep learning workflow for automated large vessel occlusion (LVO) detection and localization from non-contrast CT (NCCT) scans. 
 Stage 1: A 3D nnU-Net model was used for cerebral vessel segmentation from original 3D axial NCCT slices. 
 Stage 2: The segmented vessel mask, together with probabilistic arterial territory atlases and hemispheric difference maps, were used as multi-channel inputs to a 3D McResNet model for LVO detection. 
 Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was applied for LVO localization and occluded segment classification.
    
----
+<hr style="border: 2px solid #000;"/>
 
 ## **Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.**
 Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet). Input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.
@@ -15,7 +16,7 @@ Details of the background and running inference is here (https://github.com/MIC-
 </center>
 Fig2. (a) NCCT image; (b) Multi segmentation labels on NCCT images. Green represents the area of C7, blue indicates the area of M1, yellow corresponds to the area of M2, and red signifies other vessels.  
 
----
+<hr style="border: 2px solid #000;"/>
 ## **Stage2: a knowledge-augmented multichannel ResNet-18–based network (McResNet) was developed for detection of LVO.**
 The model incorporated multiple prior-knowledge inputs, including probabilistic arterial territory maps,
 hemispheric difference maps, and vessel segmentation masks obtained from stage 1.  
@@ -40,8 +41,8 @@ python train.py
 </pre>
 <p>Ensure all dependencies are installed before proceeding.</p>
 
----  
+<hr style="border: 2px solid #000;"/>  
 
 ## **stage3: 2D MIP images of the segmented large vessels were generated.**
-and a 2D nnU-Net model was applied for precise localization and classification of the occlusion site 
-(M1, M2, C7, C7+M1, or M1+M2). nput patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.
+A 2D nnU-Net model was applied for precise localization and classification of the occlusion site 
+(M1, M2, C7, C7+M1, or M1+M2). The input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.
