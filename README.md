@@ -23,14 +23,12 @@ These inputs were fused into a multichannel framework to enhance the discriminat
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--half_brain_mask.nii.gz  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--ProbArterialAtlas_BMM_1_double_prep.nii.gz*
 
-- 🟢 Document Description of .py：
-  prob_and_half.py Using the registration method, with the help of the MNI atlas, MNI ArterialAtlas probability atlas, and MNI corresponding left and right brain masks. We can obtain the stroke probability atlas in individual space as well as the left and right brain images in individual space.
+- 🟢 prob_and_half.py Using the registration method, with the help of the MNI atlas, MNI ArterialAtlas probability atlas, and MNI corresponding left and right brain masks. We can obtain the stroke probability atlas in individual space as well as the left and right brain images in individual space.
 - 🟢 get_halfbrain_difference.py:
   The images of the left and right brains obtained above still require the following operations, which involve more steps than obtaining the stroke probability atlas: 1. Flipping: Mirror one side of the brain to the opposite side. 2. Registration: After flipping, the two hemispheres are chirally symmetric, so direct subtraction will not align properly. Therefore, it is necessary to perform registration again. 3. Denoising, filtering, and interpolation calculations.
-- 🟢 Document Description of nii.gz:
-- MNI152_brain.nii.gz：brain tissue in MNI space
-- half_brain_mask.nii.gz: Masks for the left and right brains in MNI space, with different labels assigned to the left and right brains
-- ProbArterialAtlas_BMM_1_double_prep.nii.gz：Cerebral infarction probability map/cerebral blood supply map
+- 🟢 MNI152_brain.nii.gz：brain tissue in MNI space
+- 🟢 half_brain_mask.nii.gz: Masks for the left and right brains in MNI space, with different labels assigned to the left and right brains
+- 🟢 ProbArterialAtlas_BMM_1_double_prep.nii.gz：Cerebral infarction probability map/cerebral blood supply map
 
 ---
 **stage3: 2D MIP images of the segmented large vessels were generated.**
