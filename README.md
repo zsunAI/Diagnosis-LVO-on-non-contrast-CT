@@ -1,15 +1,15 @@
-# Diagnosis-LVO-on-non-contrast-CT
+# Diagnosis of LVO on Non-contrast CT
 ## **Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT**  
 *************************************
 ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig2.png)  
 Fig1. Overview of the three-stage deep learning workflow for automated large vessel occlusion (LVO) detection and localization from non-contrast CT (NCCT) scans. 
 Stage 1: A 3D nnU-Net model was used for cerebral vessel segmentation from original 3D axial NCCT slices. 
 Stage 2: The segmented vessel mask, together with probabilistic arterial territory atlases and hemispheric difference maps, were used as multi-channel inputs to a 3D McResNet model for LVO detection. 
-Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was applied for LVO localization and occluded segment classification.
+Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was applied for culprit vessels localization.
    
 *************************************
 
-## **Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.**  
+## **Stage1: nnU-Net for vessels segmentation on NCCT images.**  
 Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet). Input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.  
 ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png)  
 Fig2. (a) NCCT image; (b) Multi segmentation labels on NCCT images. Green represents the area of C7, blue indicates the area of M1, yellow corresponds to the area of M2, and red signifies other vessels.  
@@ -20,12 +20,12 @@ Fig2. (a) NCCT image; (b) Multi segmentation labels on NCCT images. Green repres
 The model incorporated multiple prior-knowledge inputs, including probabilistic arterial territory maps,
 hemispheric difference maps, and vessel segmentation masks obtained from stage 1.  
 These inputs were fused into a multichannel framework to enhance the discriminative representation of vascular and perfusion asymmetry patterns. A convolutional block attention module (CBAM) was further embedded to capture both channel- and spatial-level contextual dependencies, improving feature learning for LVO identification.  
-*/stage2/prior-knowledge  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--prob_and_half.py  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--get_halfbrain_difference.py  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--MNI152_brain.nii.gz  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--half_brain_mask.nii.gz  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--ProbArterialAtlas_BMM_1_double_prep.nii.gz*
+...|*stage2*|*prior-knowledge  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--prob_and_half.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--get_halfbrain_difference.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--MNI152_brain.nii.gz  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--half_brain_mask.nii.gz  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--ProbArterialAtlas_BMM_1_double_prep.nii.gz*
 
 - 🟢 prob_and_half.py Using the registration method, with the help of the MNI atlas, MNI ArterialAtlas probability atlas, and MNI corresponding left and right brain masks. We can obtain the stroke probability atlas in individual space as well as the left and right brain images in individual space.
 - 🟢 get_halfbrain_difference.py:
@@ -42,9 +42,10 @@ python train.py
 
 *************************************  
 
-## **stage3: 2D MIP images of the segmented large vessels were generated.**  
+## **stage3: nnU-Net for the localization of culprit vessels on large vessel MIP images.**  
 A 2D nnU-Net model was applied for precise localization and classification of the occlusion site 
 (M1, M2, C7, C7+M1, or M1+M2). The input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.  
-
+![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig3.png)  
+Fig3.  Examples of lesion localization. The NCCT scan sequence is the series of slices in an NCCT scan that contains the corresponding head LVO disorders. The NCCT vascular MIP displays 2D projection images of 3D vessels along the Z axis, and the red mask overlaid on this MIP image represents the segment of occluded vessels identified by our model. The last column displays digital subtraction angiography (DSA) images used for the diagnosis of cerebral artery occlusion. In a 79-year-old female patient, the cerebral occlusion was diagnosed by the deep learning (DL) model in the right middle cerebral artery segment M1 (R-MCA-M1) (red label), which was verified at DSA (arrow).
 ## **Citation**  
-If you find our paper and code useful in your research, please consider giving a star ⭐ and citation.
+If you find our paper and code useful in your research, please consider giving a star ⭐ and citing our work.
