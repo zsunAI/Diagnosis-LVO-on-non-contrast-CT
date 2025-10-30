@@ -5,9 +5,10 @@ The overall workflow of multi-modal segmentation model
 
 Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.
 Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet).  
-<p align="center">
-![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png)
-</p>  
+<center>
+    <img src="https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png" alt="image" />
+</center>
+
 
 Stage2: a knowledge-augmented multichannel ResNet-18–based network (McResNet) was developed for detection of LVO.
 The model incorporated multiple prior-knowledge inputs, including probabilistic arterial territory maps,
