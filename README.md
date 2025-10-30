@@ -1,7 +1,11 @@
 # Diagnosis-LVO-on-non-contrast-CT
-Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT
+**Deep Learning for Automated Large-Vessel Segmentation and Occlusion Localization on Noncontrast Brain CT**  
 ![image](https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig2.png)  
-Fig1. Overview of the three-stage deep learning workflow for automated large vessel occlusion (LVO) detection and localization from non-contrast CT (NCCT) scans. Stage 1: A 3D nnU-Net model was used for cerebral vessel segmentation from original 3D axial NCCT slices. Stage 2: The segmented vessel mask, together with probabilistic arterial territory atlases and hemispheric difference maps, were used as multi-channel inputs to a 3D McResNet model for LVO detection. Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was applied for LVO localization and occluded segment classification.    
+Fig1. Overview of the three-stage deep learning workflow for automated large vessel occlusion (LVO) detection and localization from non-contrast CT (NCCT) scans. 
+Stage 1: A 3D nnU-Net model was used for cerebral vessel segmentation from original 3D axial NCCT slices. 
+Stage 2: The segmented vessel mask, together with probabilistic arterial territory atlases and hemispheric difference maps, were used as multi-channel inputs to a 3D McResNet model for LVO detection. 
+Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was applied for LVO localization and occluded segment classification.
+   
 ---
 
 ## **Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.**
