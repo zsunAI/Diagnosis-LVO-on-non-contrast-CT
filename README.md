@@ -9,7 +9,8 @@ Stage 3: MIP images of large vessels were generated, and a 2D nnU-Net model was 
    
 *************************************
 
-## **Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.**
+## **Stage1: nnU-Net code for training segmentation models of vessels on NCCT images using nnU-Net framework.**  
+---
 Details of the background and running inference is here (https://github.com/MIC-DKFZ/nnUNet). Input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.
 <center>
     <img src="https://github.com/zsunAI/Diagnosis-LVO-on-non-contrast-CT/blob/main/png/Fig1.png" alt="image" />
@@ -18,7 +19,8 @@ Fig2. (a) NCCT image; (b) Multi segmentation labels on NCCT images. Green repres
 
 *************************************
 
-## **Stage2: a knowledge-augmented multichannel ResNet-18–based network (McResNet) was developed for detection of LVO.**
+## **Stage2: a knowledge-augmented multichannel ResNet-18–based network (McResNet) was developed for detection of LVO.**  
+---
 The model incorporated multiple prior-knowledge inputs, including probabilistic arterial territory maps,
 hemispheric difference maps, and vessel segmentation masks obtained from stage 1.  
 These inputs were fused into a multichannel framework to enhance the discriminative representation of vascular and perfusion asymmetry patterns. A convolutional block attention module (CBAM) was further embedded to capture both channel- and spatial-level contextual dependencies, improving feature learning for LVO identification.  
@@ -44,6 +46,11 @@ python train.py
 
 *************************************  
 
-## **stage3: 2D MIP images of the segmented large vessels were generated.**
+## **stage3: 2D MIP images of the segmented large vessels were generated.**  
+---
 A 2D nnU-Net model was applied for precise localization and classification of the occlusion site 
-(M1, M2, C7, C7+M1, or M1+M2). The input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.
+(M1, M2, C7, C7+M1, or M1+M2). The input patch size, batch size, and voxel spacing follow the specific configurations defined by the respective nnU-Net plans.  
+
+## **Citation**  
+---
+If you find our paper and code useful in your research, please consider giving a star ⭐ and citation.
