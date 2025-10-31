@@ -10,7 +10,6 @@ import gc
 from dataset import NiftiDataset
 from McResnet18 import ResNet,BasicBlock,resnet18s
 
-# how to run：CUDA_VISIBLE_DEVICES=0,1 /opt/anaconda3/bin/python trainsz1.py
 # 
 train_df = pd.read_csv('...YOURDIR/data/train_labels.csv')
 val_df = pd.read_csv('...YOURDIR/data/val_labels.csv')
